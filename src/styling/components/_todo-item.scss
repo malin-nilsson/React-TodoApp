@@ -1,0 +1,51 @@
+@use "../core/mixins";
+
+.todo {
+    @include mixins.flex(row, space-between, center, 0);
+    font-size: 1rem;
+    list-style: none;
+    border: 1px solid #000;
+    margin: 3px 0px;
+    padding: 0;
+
+    &:hover {
+        background-color: #f7e3e3;
+    }
+
+    @include mixins.tablet-and-up {
+        font-size: 1.1rem;
+    }
+
+    .todo-done {
+        @include mixins.flex(row, space-between, center, 0);
+        text-decoration: line-through;
+        padding: 11px;
+        background-color: #F7CACA;
+        width: 100%;
+        margin: 0;
+    }
+
+    .todo-done-checked {
+        @include mixins.flex(row, center, center, 10px);
+    }
+
+    .todo-not-done {
+        @include mixins.flex(row, space-between, center, 0);
+        padding: 11px;
+        background-color: #fff;
+        width: 100%;
+        margin: 0;
+
+        &:hover {
+            background-color: #f7e3e3;
+        }
+    }
+}
+
+.remove-box {
+    display: flex;
+}
+
+svg:hover {
+    cursor: pointer;
+}
