@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 interface ITodoAddProps {
-    addItem: any;
+    addItem: (arg0: string) => void;
 }
 
 export default function TodoAdd({ addItem }: ITodoAddProps) {
