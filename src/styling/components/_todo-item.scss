@@ -1,5 +1,11 @@
 @use "../core/mixins";
 
+.todo-box {
+    padding: 12px 0px 0px;
+    margin: 0px;
+    width: 100%;
+}
+
 .todo {
     @include mixins.flex(row, space-between, center, 0);
     font-size: 1rem;

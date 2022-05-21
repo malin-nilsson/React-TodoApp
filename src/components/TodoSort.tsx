@@ -1,11 +1,23 @@
 import React from 'react'
 
-export default function TodoSort() {
+interface ITodoSortProps {
+    sortByName: () => void;
+}
+
+export default function TodoSort(props: ITodoSortProps) {
+
+    const handleSortByName = () => {
+        props.sortByName()
+    }
+
     return (
         <div className="sort-button-box">
             Sort
 
-            <button className="sort-button">Alphabetically</button>
+            <button className="sort-button"
+                onClick={() => {
+                    handleSortByName();
+                }}>Alphabetically</button>
             <button className="sort-button">Done</button>
             <button className="sort-button">Not Done</button>
         </div>

@@ -30,11 +30,17 @@ export default function TodoApp() {
         setTodos(newTodoList)
     }
 
+    const sortByName = () => {
+        let newTodoList = [...todos]
+        newTodoList.sort((a, b) => a.task.localeCompare(b.task));
+        setTodos(newTodoList)
+    }
+
     return (
         <div className="todo-content">
             <TodoHeader />
             <TodoAdd addItem={addItem} />
-            <TodoSort />
+            <TodoSort sortByName={sortByName} />
             <TodoItem todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
         </div>
     )

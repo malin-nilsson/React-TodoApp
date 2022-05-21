@@ -16,6 +16,8 @@ export default function TodoItem(props: ITodoItemProps) {
         props.toggleTodo(id)
     }
 
+
+
     const todoHTML = props.todos.map((todo) => {
         return <div className="todo" key={todo.id}
         >
