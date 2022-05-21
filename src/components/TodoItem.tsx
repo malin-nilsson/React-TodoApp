@@ -1,16 +1,24 @@
 import React from 'react'
-import { TodoModel } from '../models/TodoModel'
+import { Todo } from '../models/Todo'
 import TodoRemove from './TodoRemove'
 
 interface ITodoItemProps {
-    todo: TodoModel;
+    todos: Todo[];
 }
 
 export default function TodoItem(props: ITodoItemProps) {
-    return (
-        <div className="todo">
-            <span>{props.todo.task}</span>
+
+    const todoHTML = props.todos.map((todo) => {
+        return <div className="todo" key={todo.id}>
+            <span>{todo.task}</span>
             <TodoRemove />
         </div>
+    }
+    );
+
+    return (
+        <>
+            {todoHTML}
+        </>
     )
 }

@@ -1,20 +1,24 @@
-import React from 'react'
-import { TodoModel } from '../models/TodoModel'
+import React, { useEffect, useState } from 'react'
+import { Todo } from '../models/Todo'
 import TodoAdd from './TodoAdd'
 import TodoHeader from './TodoHeader'
 import TodoItem from './TodoItem'
 import TodoSort from './TodoSort'
 
+
 export default function TodoApp() {
+    const [todos, setTodos] = useState<Todo[]>([]);
 
-    const todos = new TodoModel("Ny todo")
+    const addItem = (todo: string) => {
+        setTodos([...todos, new Todo(todo)]);
 
+    }
     return (
         <div className="todo-content">
             <TodoHeader />
-            <TodoAdd />
+            <TodoAdd addItem={addItem} />
             <TodoSort />
-            <TodoItem todo={todos} />
+            <TodoItem todos={todos} />
         </div>
     )
 }
