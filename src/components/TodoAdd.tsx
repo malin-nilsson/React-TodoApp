@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Todo } from '../models/Todo';
 
 interface ITodoAddProps {
     addItem: any;

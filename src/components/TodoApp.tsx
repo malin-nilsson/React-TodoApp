@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Todo } from '../models/Todo'
 import TodoAdd from './TodoAdd'
 import TodoHeader from './TodoHeader'
@@ -11,14 +11,22 @@ export default function TodoApp() {
 
     const addItem = (todo: string) => {
         setTodos([...todos, new Todo(todo)]);
+    }
+
+    const removeTodo = (id: number) => {
+        let index = todos.findIndex((todo) => todo.id === id);
+        let newTodoList = [...todos]
+        newTodoList.splice(index, 1)
+        setTodos(newTodoList)
 
     }
+
     return (
         <div className="todo-content">
             <TodoHeader />
             <TodoAdd addItem={addItem} />
             <TodoSort />
-            <TodoItem todos={todos} />
+            <TodoItem todos={todos} removeTodo={removeTodo} />
         </div>
     )
 }
