@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Todo } from '../models/Todo'
 import TodoAdd from './TodoAdd'
 import TodoHeader from './TodoHeader'
@@ -8,11 +8,37 @@ import TodoSort from './TodoSort'
 export default function TodoApp() {
     const [todos, setTodos] = useState<Todo[]>([]);
 
+    useEffect(() => {
+        getFromLocalStorage()
+    }, [])
+
+    ///////////////////////////
+    /////// Local Storage /////
+    ///////////////////////////
+    const getFromLocalStorage = () => {
+        let listFromLocalStorage = localStorage.getItem("Todo items");
+        if (!listFromLocalStorage) {
+            setLocalStorage([])
+        } else {
+            let storageTodos = [...todos];
+            storageTodos = JSON.parse(listFromLocalStorage);
+            setTodos(storageTodos)
+        }
+    }
+
+    const setLocalStorage = (list: Todo[] | [""]) => {
+        localStorage.setItem("Todo items", JSON.stringify(list));
+    }
+
     ///////////////////////////
     ///////// Add todo /////////
     ///////////////////////////
     const addItem = (todo: string) => {
-        setTodos([...todos, new Todo(todo)]);
+        let newTodoList = [...todos]
+        let newTodo = new Todo(todo);
+        newTodoList.push(newTodo)
+        setLocalStorage(newTodoList)
+        setTodos(newTodoList)
     }
 
     ///////////////////////////
@@ -23,9 +49,9 @@ export default function TodoApp() {
         if (todo) {
             todo.done = !todo.done;
             let newTodoList = [...todos]
+            setLocalStorage(newTodoList)
             setTodos(newTodoList)
         }
-        console.log(todo)
     }
 
     ///////////////////////////
@@ -33,9 +59,10 @@ export default function TodoApp() {
     ///////////////////////////
     const removeTodo = (id: number) => {
         let index = todos.findIndex((todo) => todo.id === id);
-        let newTodoList = [...todos]
-        newTodoList.splice(index, 1)
-        setTodos(newTodoList)
+        let newTodoList = [...todos];
+        newTodoList.splice(index, 1);
+        setLocalStorage(newTodoList);
+        setTodos(newTodoList);
     }
 
     ///////////////////////////

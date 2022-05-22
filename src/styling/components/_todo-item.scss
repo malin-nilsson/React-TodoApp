@@ -29,6 +29,7 @@
         background-color: #F7CACA;
         width: 100%;
         margin: 0;
+        transition: 0.2s all ease-in-out;
     }
 
     .todo-done-checked {
@@ -42,6 +43,7 @@
         background-color: #fff;
         width: 100%;
         margin: 0;
+        transition: 0.2s all ease-in-out;
 
         &:hover {
             background-color: #f7e3e3;
