@@ -1,5 +1,6 @@
 import React from 'react'
 import { Todo } from '../models/Todo'
+import TodoSort from './TodoSort';
 
 interface ITodoItemProps {
     todos: Todo[];
@@ -16,11 +17,14 @@ export default function TodoItem(props: ITodoItemProps) {
         props.toggleTodo(id)
     }
 
+    const emptyHTML = <p className="placeholder-no-todos">You have no tasks right now. Yay &#128522;</p>
 
+    if (props.todos.length === 0) {
+        return emptyHTML
+    }
 
     const todoHTML = props.todos.map((todo) => {
-        return <div className="todo" key={todo.id}
-        >
+        return <div className="todo" key={todo.id}>
 
             {todo.done ? (
                 <div className="todo-done">
@@ -78,6 +82,7 @@ export default function TodoItem(props: ITodoItemProps) {
 
     return (
         <div className="todo-box">
+
             {todoHTML}
         </div>
     )

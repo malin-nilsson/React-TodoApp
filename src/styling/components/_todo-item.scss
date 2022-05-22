@@ -60,6 +60,11 @@ input[type='checkbox'] {
     display: flex;
 }
 
+.placeholder-no-todos {
+    padding: 60px 20px;
+    font-size: 1.1rem;
+}
+
 svg:hover {
     cursor: pointer;
 }
