@@ -22,7 +22,7 @@
 }
 
 // Button styling
-@mixin btn($radius: 5px, $fontsize: 1.1rem) {
+@mixin btn($radius: 5px, $fontsize: 1rem) {
     color: #001220;
     background-color: #F7CACA;
     padding: 10px 15px;

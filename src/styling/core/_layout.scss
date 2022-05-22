@@ -3,7 +3,7 @@
 .App {
     @include mixins.flex(column, flex-start, center, 0);
     background-image: url("../../assets/hero-bg.svg");
-    background-position: center;
+    background-position: right;
     background-size: cover;
     height: 100vh;
     padding: 0px;
@@ -11,7 +11,7 @@
 
 .todo-wrapper {
     @include mixins.flex(column, flex-start, center, 0);
-    width: 90%;
+    width: 95%;
     height: 90vh;
     margin: 40px auto;
     background-color: #fff;
@@ -30,6 +30,10 @@
 }
 
 .todo-content {
-    width: 80%;
+    width: 85%;
     padding: 10px 0px;
+
+    @include mixins.tablet-and-up {
+        width: 80%;
+    }
 }
