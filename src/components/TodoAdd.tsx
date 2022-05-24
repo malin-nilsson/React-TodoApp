@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 
 interface ITodoAddProps {
-    addItem: (arg0: string) => void;
+    addItem(newTodo: string): void;
 }
 
-export default function TodoAdd({ addItem }: ITodoAddProps) {
+export default function TodoAdd(props: ITodoAddProps) {
     const [todoInput, setTodoInput] = useState("");
 
     const addNewTodo = () => {
-        addItem(todoInput)
+        props.addItem(todoInput)
         setTodoInput("");
     };
 
@@ -16,10 +16,10 @@ export default function TodoAdd({ addItem }: ITodoAddProps) {
         <div className="input-box">
             <input type="text" placeholder="Add new todo..."
                 value={todoInput}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     setTodoInput(e.target.value);
                 }}
-                onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                onKeyUp={(e: KeyboardEvent<HTMLInputElement>) => {
                     e.preventDefault();
                     if (e.key === "Enter" && todoInput) {
                         addNewTodo()

@@ -9,8 +9,9 @@ export default function TodoApp() {
     const [todos, setTodos] = useState<Todo[]>([]);
 
     useEffect(() => {
+        if (todos.length !== 0) return;
         getFromLocalStorage()
-    }, [])
+    })
 
     ///////////////////////////
     /////// Local Storage /////
@@ -20,13 +21,13 @@ export default function TodoApp() {
         if (!listFromLocalStorage) {
             setLocalStorage([])
         } else {
-            let storageTodos = [...todos];
-            storageTodos = JSON.parse(listFromLocalStorage);
+            let storageTodos: Todo[] = JSON.parse(listFromLocalStorage);
+            if (storageTodos.length === 0) return;
             setTodos(storageTodos)
         }
     }
 
-    const setLocalStorage = (list: Todo[] | [""]) => {
+    const setLocalStorage = (list: Todo[] | []) => {
         localStorage.setItem("Todo items", JSON.stringify(list));
     }
 
