@@ -13,15 +13,6 @@ To-do app built with React, TypeScript and Sass. Users can add and delete tasks,
 3. Run React\
 `npm start`
 
-Visit localhost:1234 to view the project
-
-## Tools
-- HTML & SASS
-- TypeScript
-- Bootstrap
-- NPM
-- Cypress
-
 ## Author
 - GitHub - [malin-nilsson](https://github.com/malin-nilsson)
 
