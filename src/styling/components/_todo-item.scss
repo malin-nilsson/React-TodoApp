@@ -7,7 +7,7 @@
 }
 
 .todo {
-    margin: 10px 0px;
+    margin: 15px 0px;
 
     @include mixins.tablet-and-up {
         font-size: 1.1rem;
@@ -15,8 +15,9 @@
 
     .todo-done-wrapper {
         @include mixins.flex(column, space-between, flex-start, 0px);
-        background-color: rgb(242, 190, 190, 0.4);
+        background-color: rgb(250, 216, 216);
         width: 100%;
+        border: 2px solid rgb(250, 216, 216);
         margin: 0;
         transition: 0.2s all ease-in-out;
 
@@ -35,7 +36,7 @@
 
     .todo-not-done-wrapper {
         @include mixins.flex(column, space-between, flex-start, 0px);
-        background-color: rgb(242, 190, 190);
+        border: 2px solid rgb(250, 216, 216);
         width: 100%;
         margin: 0;
         transition: 0.2s all ease-in-out;
