@@ -1,7 +1,7 @@
 # React To-Do App
 To-do app built with React, TypeScript and Sass. Users can add and delete tasks, mark them as done and sort tasks by name, creation date and status. Tasks are saved in local storage.
 
-![]()
+![](./src/assets/screenshot.jpg)
 
 ## Installation
 1. Clone the repo\
