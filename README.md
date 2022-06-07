@@ -1,4 +1,4 @@
-# React To-Do App
+# React To-Do App ✍️
 To-do app built with React, TypeScript and Sass. Users can add and delete tasks, mark them as done and sort tasks by name, creation date and status. Tasks are saved in local storage.
 
 Live site url: https://taskly-react-app.netlify.app/
